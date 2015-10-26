@@ -41,19 +41,6 @@ module.exports = function (grunt) {
           ]
       }
     },
-    autoprefixer: {
-      options: {
-        browsers: ['last 2 versions']
-      },
-      server: {
-        files: [{
-          expand: true,
-          cwd: '.tmp',
-          src: '**/*.css',
-          dest: '.tmp'
-        }]
-      }
-    },
     connect: {
       options: {
         port: 9000,
@@ -91,7 +78,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('serve', [
       'configureProxies',
-      'autoprefixer:server',
       'connect:livereload',
       'open',
       'watch'
