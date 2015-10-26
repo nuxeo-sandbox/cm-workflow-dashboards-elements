@@ -1,0 +1,107 @@
+<!--
+(C) Copyright 2015 Nuxeo SA (http://nuxeo.com/) and contributors.
+
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the GNU Lesser General Public License
+(LGPL) version 2.1 which accompanies this distribution, and is available at
+http://www.gnu.org/licenses/lgpl.html
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+Lesser General Public License for more details.
+
+Contributors:
+  Josh Fletcher <jfletcher@nuxeo.com>
+-->
+<!--
+An element providing a dashboard for the Check Contract workflow in the Case Management Showcase.
+
+Example:
+
+    <cm-dashboard-workflow-check_contract start-date="2015-01-01"
+                             end-date="2015-12-31">
+    </cm-dashboard-workflow-check_contract>
+
+@group Nuxeo Dashboards
+@element cm-dashboard-workflow-check_contract
+@demo demo/index.html
+-->
+<dom-module id="cm-dashboard-workflow-check_contract">
+
+  <link rel="import" type="css" href="cm-workflow-dashboards.css">
+
+  <template>
+
+    <!-- Total workflows started by each user -->
+    <nuxeo-workflow-data workflow="wf-10-CheckContract" event="afterWorkflowStarted" grouped-by="workflowInitiator" start-date="[[startDate]]" end-date="[[endDate]]" data="{{initiators_wf-10-CheckContract}}">
+    </nuxeo-workflow-data>
+
+    <!-- Display a Pie Chart with our data -->
+    <paper-card heading="Workflow Initiator" elevation="2">
+      <div class="card-content">
+        <google-chart type="pie" cols='[{"label": "User", "type": "string"},{"label": "Value", "type": "number"}]' rows="[[_rows(initiators_wf-10-CheckContract)]]">
+        </google-chart>
+      </div>
+    </paper-card>
+
+    <!-- Avg workflow duration -->
+    <nuxeo-workflow-data workflow="wf-10-CheckContract" event="afterWorkflowFinish" metrics="avg(timeSinceWfStarted)" start-date="[[startDate]]" end-date="[[endDate]]" data="{{avgWorkflowLength_wf-10-CheckContract}}">
+    </nuxeo-workflow-data>
+
+    <paper-card heading="Average Workflow Duration" elevation="2">
+      <div class="card-content">
+        <iron-icon icon="image:timer"></iron-icon>
+        <span class="workflow-length-label">[[_asDuration(avgWorkflowLength_wf-10-CheckContract)]]</span>
+      </div>
+    </paper-card>
+
+  </template>
+
+</dom-module>
+
+<script>
+  Polymer({
+
+    is: 'cm-dashboard-workflow-check_contract',
+
+
+    // Expose startDate and endDate as properties
+    properties: {
+      startDate: String,
+      endDate: String
+    },
+
+    // Transform our data for usage with Google Charts
+    _rows: function (data) {
+      return data.map(function (e) {
+        return [e.key, e.value];
+      });
+    },
+
+    _asDuration: function (duration) {
+      var seconds = Math.floor(duration / 1000),
+        minutes = Math.floor(seconds / 60),
+        hours = Math.floor(minutes / 60),
+        days = Math.floor(hours / 24),
+        hours = hours - (days * 24),
+        minutes = minutes - (days * 24 * 60) - (hours * 60),
+        seconds = seconds - (days * 24 * 60 * 60) - (hours * 60 * 60) - (minutes * 60),
+        result = "";
+      if (days > 0) {
+        result += days + " Days ";
+      }
+      if (hours > 0) {
+        result += hours + " h ";
+      }
+      if (minutes > 0) {
+        result += minutes + " m ";
+      }
+      if (seconds > 0) {
+        result += seconds + " s ";
+      }
+      return result;
+    }
+
+  });
+</script>
