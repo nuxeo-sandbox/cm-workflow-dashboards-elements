@@ -19,38 +19,58 @@ Contributors:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <title>Check Contract Workflow Dashboard Demo</title>
+  <title>Case Management Showcase Workflow Dashboard Demos</title>
 
   <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-  <script src="../bower_components/moment/min/moment-with-locales.js"></script>
 
-  <link rel="import" href="../bower_components/nuxeo-elements/nx-connection.html">
   <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
   <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
+  <link rel="import" href="../bower_components/paper-item/paper-item.html">
+  <link rel="import" href="../bower_components/paper-item/paper-item-body.html">
+  <link rel="import" href="../bower_components/paper-item/paper-item-shared-styles.html">
+  <link rel="import" href="../bower_components/paper-card/paper-card.html">
 
-  <link rel="import" href="../cm-workflow-dashboard-check_contract.html">
 
   <link rel="import" href="../bower_components/polymer/polymer.html">
-  <link rel="import" href="../bower_components/google-chart/google-chart.html">
-  <link rel="import" href="../bower_components/paper-card/paper-card.html">
   <link rel="import" href="../bower_components/paper-material/paper-material.html">
-  <link rel="import" href="../bower_components/nuxeo-dataviz-elements/nuxeo-dataviz-elements.html">
-  <link rel="import" href="../bower_components/iron-icons/image-icons.html">
 
   <style is="custom-style">
+    .list {
+      padding-top: 12px;
+      background-color: white;
+      display: inline-block;
+      width: 240px;
+      height: 228px;
+      margin: 12px;
+      @apply(--shadow-elevation-2dp);
+    }
+    
+    .short {
+      padding-top: 12px;
+      height: 300px;
+    }
+    
+    h4 {
+      margin-left: 24px;
+    }
+    
     body {
       background: #fafafa;
       font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       color: #444;
     }
     
-    #title {
+    #header-title {
       font-size: 140%;
       display: table;
       margin: 0 auto;
     }
     
-    #logo {
+    #header-spacer {
+      width: 129px;
+    }
+    
+    #header-logo {
       background: transparent url('http://cm.cloud.nuxeo.com/nuxeo/img/nuxeo_cm_logo.png') no-repeat;
       background-size: cover;
       display: inline-block;
@@ -68,38 +88,42 @@ Contributors:
 
 <body unresolved class="fullbleed">
 
-  <template is="dom-bind" id="app">
+  <paper-header-panel>
+    <paper-toolbar>
+      <div id="header-logo"></div>
+      <div id="header-title">Case Management Showcase Workflow Dashboard Demos</div>
+      <div id="header-spacer"></div>
+    </paper-toolbar>
 
-    <!-- Define a connection to our Nuxeo server -->
-    <nx-connection url="/nuxeo"></nx-connection>
-
-    <paper-header-panel>
-      <paper-toolbar>
-        <div id="logo"></div>
-        <div id="title">Check Contract Workflow Dashboard</div>
-        <div id="dateRange">
-          <input type="date" value="{{startDate::change}}">
-          <input type="date" value="{{endDate::change}}">
-        </div>
-      </paper-toolbar>
+    <paper-card heading="Select Workflow" elevation="2">
 
 
+      <div class="list short" role="list">
+        <paper-item role="listitem" tabindex="0" aria-disabled="false" class="x-scope paper-item-0">
+          <a href="demo-wf-10-CheckContract.html">wf-10-CheckContract</a>
+        </paper-item>
+        <paper-item role="listitem" tabindex="0" aria-disabled="false" class="x-scope paper-item-0">
+          <a href="demo-wf-20-GetInfosAndFiles.html">wf-20-GetInfosAndFiles</a>
+        </paper-item>
+        <paper-item role="listitem" tabindex="0" aria-disabled="false" class="x-scope paper-item-0">
+          <a href="demo-wf-30-GetValuation.html">wf-30-GetValuation</a>
+        </paper-item>
+        <paper-item role="listitem" tabindex="0" aria-disabled="false" class="x-scope paper-item-0">
+          <a href="demo-wf-40-Decisions.html">wf-40-Decisions</a>
+        </paper-item>
+        <paper-item role="listitem" tabindex="0" aria-disabled="false" class="x-scope paper-item-0">
+          <a href="demo-wf-50-Archive.html">wf-50-Archive</a>
+        </paper-item>
+        <paper-item role="listitem" tabindex="0" aria-disabled="false" class="x-scope paper-item-0">
+          <a href="demo-wf-investigator.html">wf-investigator</a>
+        </paper-item>
 
-      <!-- Include our element and specify a start and end date -->
-      <cm-dashboard-workflow-check_contract start-date="[[startDate]]" end-date="[[endDate]]">
-      </cm-dashboard-workflow-check_contract>
+      </div>
+    </paper-card>
 
-    </paper-header-panel>
+  </paper-header-panel>
 
-  </template>
 
 </body>
-
-<script>
-  var t = document.querySelector('template');
-  var currentDate = moment();
-  t.endDate = currentDate.format("YYYY-MM-DD");
-  t.startDate = currentDate.subtract(6, 'months').format("YYYY-MM-DD");
-</script>
 
 </html>
