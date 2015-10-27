@@ -18,11 +18,15 @@ module.exports = function (grunt) {
 
   // configurable paths
   var yeomanConfig = {
+    // I set this to the current folder for simplicity.
+    // At one point I set `app` to "demo" but I could not find
+    // an easy way access content that was up a level.
     app: '.'
   };
 
   grunt.initConfig({
     yeoman: yeomanConfig,
+    // I was unable to get it working well without `watch` and `livereload`.
     watch: {
       options: {
         nospawn: true,
@@ -36,8 +40,9 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= yeoman.app %>/*.html',
-          '*.html',
-          '*.css',
+          '<%= yeoman.app %>/*.css',
+          '<%= yeoman.app %>/demo/*.html',
+          '<%= yeoman.app %>/demo/*.css'
           ]
       }
     },
@@ -49,6 +54,14 @@ module.exports = function (grunt) {
       },
       proxies: [
         {
+          // Was unable to get the proxy working with the live server.
+          // Not an issue with this app; probably not an issue with grunt.
+          // The live server has an Apache reverse proxy. For whatever reason
+          // the rewriting was failing. Requests with "nuxeo" in the URL were
+          // being handled by Apache when using the proxy.
+
+          // I'm using "/nuxeo/site" here because "/nuxeo" is too broad and
+          // matches any URL with "/nuxeo" in it (like "nuxeo-elements").
           context: '/nuxeo/site',
           host: 'localhost',
           port: '8080'
