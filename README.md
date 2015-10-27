@@ -4,7 +4,7 @@ Workflow Dashboards for the Nuxeo Case Management Showcase.
 
 These are Polymer Web components.
 
-## Requiments
+## Requirements
 
 Access to a local copy of the Nuxeo Case Management Showcase demo is required. It will not work with the live server out of the box.
 
