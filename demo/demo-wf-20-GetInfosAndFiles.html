@@ -19,23 +19,12 @@ Contributors:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <title>Check Contract Workflow Dashboard Demo</title>
+  <title>Get Infos and Files Workflow Dashboard Demo</title>
 
   <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
   <script src="../bower_components/moment/min/moment-with-locales.js"></script>
 
-  <link rel="import" href="../bower_components/nuxeo-elements/nx-connection.html">
-  <link rel="import" href="../bower_components/paper-header-panel/paper-header-panel.html">
-  <link rel="import" href="../bower_components/paper-toolbar/paper-toolbar.html">
-
-  <link rel="import" href="../cm-workflow-dashboard-check_contract.html">
-
-  <link rel="import" href="../bower_components/polymer/polymer.html">
-  <link rel="import" href="../bower_components/google-chart/google-chart.html">
-  <link rel="import" href="../bower_components/paper-card/paper-card.html">
-  <link rel="import" href="../bower_components/paper-material/paper-material.html">
-  <link rel="import" href="../bower_components/nuxeo-dataviz-elements/nuxeo-dataviz-elements.html">
-  <link rel="import" href="../bower_components/iron-icons/image-icons.html">
+  <link rel="import" href="../elements.html">
 
   <style is="custom-style">
     body {
@@ -76,7 +65,7 @@ Contributors:
     <paper-header-panel>
       <paper-toolbar>
         <div id="logo"></div>
-        <div id="title">Check Contract Workflow Dashboard</div>
+        <div id="title">Get Infos and Files Workflow Dashboard</div>
         <div id="dateRange">
           <input type="date" value="{{startDate::change}}">
           <input type="date" value="{{endDate::change}}">
@@ -86,8 +75,8 @@ Contributors:
 
 
       <!-- Include our element and specify a start and end date -->
-      <cm-dashboard-workflow-check_contract start-date="[[startDate]]" end-date="[[endDate]]">
-      </cm-dashboard-workflow-check_contract>
+      <cm-workflow-dashboard-GetInfosAndFiles start-date="[[startDate]]" end-date="[[endDate]]">
+      </cm-workflow-dashboard-GetInfosAndFiles>
 
     </paper-header-panel>
 

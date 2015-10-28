@@ -14,45 +14,50 @@ Lesser General Public License for more details.
 Contributors:
   Josh Fletcher <jfletcher@nuxeo.com>
 -->
+<link rel="import" href="bower_components/paper-card/paper-card.html">
+<link rel="import" href="bower_components/iron-icons/image-icons.html">
+<link rel="import" href="bower_components/google-chart/google-chart.html">
+<link rel="import" href="bower_components/nuxeo-dataviz-elements/nuxeo-dataviz-elements.html">
 <!--
-An element providing a dashboard for the Check Contract workflow in the Case Management Showcase.
+An element providing dashboard elements for a given workflow.
 
 Example:
 
-    <cm-dashboard-workflow-check_contract start-date="2015-01-01"
-                             end-date="2015-12-31">
-    </cm-dashboard-workflow-check_contract>
+    <cm-workflow-dashboards-common workflowNAme="myWorkflow"
+                                   start-date="2015-01-01"
+                                   end-date="2015-12-31">
+    </cm-workflow-dashboards-common>
 
 @group Nuxeo Dashboards
-@element cm-dashboard-workflow-check_contract
+@element cm-workflow-dashboards-common
 @demo demo/index.html
 -->
-<dom-module id="cm-dashboard-workflow-check_contract">
+<dom-module id="cm-workflow-dashboards-common">
 
   <link rel="import" type="css" href="cm-workflow-dashboards.css">
 
   <template>
 
     <!-- Total workflows started by each user -->
-    <nuxeo-workflow-data workflow="wf-10-CheckContract" event="afterWorkflowStarted" grouped-by="workflowInitiator" start-date="[[startDate]]" end-date="[[endDate]]" data="{{initiators_wf-10-CheckContract}}">
+    <nuxeo-workflow-data workflow="[[workflowName]]" event="afterWorkflowStarted" grouped-by="workflowInitiator" start-date="[[startDate]]" end-date="[[endDate]]" data="{{initiators}}">
     </nuxeo-workflow-data>
 
     <!-- Display a Pie Chart with our data -->
     <paper-card heading="Workflow Initiator" elevation="2">
       <div class="card-content">
-        <google-chart type="pie" cols='[{"label": "User", "type": "string"},{"label": "Value", "type": "number"}]' rows="[[_rows(initiators_wf-10-CheckContract)]]">
+        <google-chart type="pie" cols='[{"label": "User", "type": "string"},{"label": "Value", "type": "number"}]' rows="[[_rows(initiators)]]">
         </google-chart>
       </div>
     </paper-card>
 
     <!-- Avg workflow duration -->
-    <nuxeo-workflow-data workflow="wf-10-CheckContract" event="afterWorkflowFinish" metrics="avg(timeSinceWfStarted)" start-date="[[startDate]]" end-date="[[endDate]]" data="{{avgWorkflowLength_wf-10-CheckContract}}">
+    <nuxeo-workflow-data workflow="[[workflowName]]" event="afterWorkflowFinish" metrics="avg(timeSinceWfStarted)" start-date="[[startDate]]" end-date="[[endDate]]" data="{{avgWorkflowLength}}">
     </nuxeo-workflow-data>
 
     <paper-card heading="Average Workflow Duration" elevation="2">
       <div class="card-content">
         <iron-icon icon="image:timer"></iron-icon>
-        <span class="workflow-length-label">[[_asDuration(avgWorkflowLength_wf-10-CheckContract)]]</span>
+        <span class="workflow-length-label">[[_asDuration(avgWorkflowLength)]]</span>
       </div>
     </paper-card>
 
@@ -63,11 +68,11 @@ Example:
 <script>
   Polymer({
 
-    is: 'cm-dashboard-workflow-check_contract',
+    is: 'cm-workflow-dashboards-common',
 
-
-    // Expose startDate and endDate as properties
+    // Expose properties
     properties: {
+      workflowName: String,
       startDate: String,
       endDate: String
     },
