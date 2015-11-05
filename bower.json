@@ -17,7 +17,6 @@
     "cm-workflow-dashboard-Decisions.html",
     "cm-workflow-dashboard-Archive.html",
     "cm-workflow-dashboard-investigator.html"
-
   ],
   "license": "LGPL",
   "homepage": "https://github.com/jfletcher-nuxeo/cm-workflow-dashboards",
@@ -40,6 +39,7 @@
   },
   "resolutions": {
     "nuxeo-elements": "0.1.0",
-    "nuxeo": "0.7.0"
+    "nuxeo": "0.7.0",
+    "polymer": "^1.1.4"
   }
 }
