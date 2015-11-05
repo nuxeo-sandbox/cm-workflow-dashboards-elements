@@ -11,7 +11,13 @@
     "seed"
   ],
   "main": [
-    "cm-workflow-dashboard-check_contract.html"
+    "cm-workflow-dashboard-CheckContract.html",
+    "cm-workflow-dashboard-GetInfosAndFiles.html",
+    "cm-workflow-dashboard-GetValudation.html",
+    "cm-workflow-dashboard-Decisions.html",
+    "cm-workflow-dashboard-Archive.html",
+    "cm-workflow-dashboard-investigator.html"
+
   ],
   "license": "LGPL",
   "homepage": "https://github.com/jfletcher-nuxeo/cm-workflow-dashboards",
