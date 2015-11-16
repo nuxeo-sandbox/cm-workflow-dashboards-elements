@@ -4,11 +4,7 @@ var mountFolder = function (dir) {
   return require('serve-static')(require('path').resolve(dir));
 };
 
-// # Globbing
-// for performance reasons we're only matching one level down:
-// 'test/spec/{,*/}*.js'
-// use this if you want to match all subfolders:
-// 'test/spec/**/*.js'
+// This is a simplified grunt configuration used only during dev to serve the app.
 
 module.exports = function (grunt) {
   // show elapsed time at the end
