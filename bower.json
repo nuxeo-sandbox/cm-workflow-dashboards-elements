@@ -25,21 +25,15 @@
     "/test/"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#1.1.4",
-    "iron-ajax": "PolymerElements/iron-ajax#1.0.6",
+    "polymer": "~1.2.0",
+    "iron-ajax": "PolymerElements/iron-ajax#~1.0.7",
     "iron-elements": "PolymerElements/iron-elements#1.0.4",
     "paper-elements": "PolymerElements/paper-elements#1.0.5",
     "google-chart": "GoogleWebComponents/google-chart#1.0.3",
-    "nuxeo-elements": "nuxeo/nuxeo-elements#0.1.0",
-    "chart-elements": "nuxeo/chart-elements#nuxeo-chart-elements",
-    "nuxeo-dataviz-elements": "nuxeo/nuxeo-dataviz-elements#0a435987289b6ab489169c5eba23771ccf5b8d35"
+    "nuxeo-elements": "nuxeo/nuxeo-elements#~0.2.3",
+    "nuxeo-dataviz-elements": "nuxeo/nuxeo-dataviz-elements#~0.2.1"
   },
   "devDependencies": {
     "moment": "2.10.6"
-  },
-  "resolutions": {
-    "nuxeo-elements": "0.1.0",
-    "nuxeo": "0.7.0",
-    "polymer": "^1.1.4"
   }
 }
