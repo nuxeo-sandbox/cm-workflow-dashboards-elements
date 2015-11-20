@@ -1,6 +1,6 @@
 {
-  "name": "cm-workflow-dashboards",
-  "version": "0.0.1",
+  "name": "cm-workflow-dashboards-elements",
+  "version": "1.0.0",
   "authors": [
     "Josh Fletcher <jfletcher@nuxeo.com>"
   ],
@@ -19,7 +19,7 @@
     "cm-workflow-dashboard-investigator.html"
   ],
   "license": "LGPL",
-  "homepage": "https://github.com/jfletcher-nuxeo/cm-workflow-dashboards",
+  "homepage": "https://github.com/jfletcher-nuxeo/cm-workflow-dashboards-elements",
   "ignore": [
     "/.*",
     "/test/"

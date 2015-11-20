@@ -1,6 +1,6 @@
 {
-  "name": "cm-workflow-dashboards",
-  "version": "0.0.1",
+  "name": "cm-workflow-dashboards-elements",
+  "version": "1.0.0",
   "dependencies": {},
   "devDependencies": {
     "connect-livereload": "^0.5.3",
