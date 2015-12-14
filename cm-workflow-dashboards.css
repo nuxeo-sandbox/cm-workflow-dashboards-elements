@@ -107,6 +107,9 @@ iron-icon {
   }
 }
 
+
+/* This is to center the charts within the card. */
+
 .card-content {
   display: table;
   margin: 0px auto;
