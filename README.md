@@ -6,7 +6,7 @@ These are Polymer Web components.
 
 # Requirements
 
-Access to a local copy of the Nuxeo Case Management Showcase demo is required. It will not work with the live server out of the box.
+Access to a the Nuxeo Case Management Showcase demo is required.
 
 Install Node.js (I use [Homebrew](http://brew.sh/)).
 
