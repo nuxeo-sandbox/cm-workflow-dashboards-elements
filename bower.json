@@ -10,28 +10,18 @@
     "polymer",
     "seed"
   ],
-  "main": [
-    "cm-workflow-dashboard-CheckContract.html",
-    "cm-workflow-dashboard-GetInfosAndFiles.html",
-    "cm-workflow-dashboard-GetValudation.html",
-    "cm-workflow-dashboard-Decisions.html",
-    "cm-workflow-dashboard-Archive.html",
-    "cm-workflow-dashboard-investigator.html"
-  ],
-  "license": "LGPL",
+  "license": "http://www.apache.org/licenses/LICENSE-2.0",
   "homepage": "https://github.com/nuxeo_sandbox/cm-workflow-dashboards-elements",
   "ignore": [
     "/.*",
     "/test/"
   ],
   "dependencies": {
-    "polymer": "~1.2.0",
-    "iron-ajax": "PolymerElements/iron-ajax#~1.0.7",
-    "iron-elements": "PolymerElements/iron-elements#1.0.4",
-    "paper-elements": "PolymerElements/paper-elements#1.0.5",
-    "google-chart": "GoogleWebComponents/google-chart#1.0.3",
-    "nuxeo-elements": "nuxeo/nuxeo-elements#~0.2.3",
-    "nuxeo-dataviz-elements": "nuxeo/nuxeo-dataviz-elements#~0.2.1"
+    "polymer": "^1.6.0",
+    "paper-elements": "PolymerElements/paper-elements#^1.0.7",
+    "google-chart": "GoogleWebComponents/google-chart#^1.1.0",
+    "nuxeo-elements": "nuxeo/nuxeo-elements#^0.4.0",
+    "nuxeo-dataviz-elements": "nuxeo/nuxeo-dataviz-elements#^0.4.0"
   },
   "devDependencies": {
     "moment": "2.10.6"
